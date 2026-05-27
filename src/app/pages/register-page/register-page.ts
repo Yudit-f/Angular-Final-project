@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,7 @@ export class RegisterPage {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   onSubmit(form: NgForm): void {
@@ -29,40 +30,54 @@ export class RegisterPage {
 
     if (!username || !password || !passwordVerify) {
       this.errorMessage = 'Please complete all fields.';
+      this.cdr.detectChanges();
       return;
     }
 
     if (password !== passwordVerify) {
       this.errorMessage = 'Passwords do not match.';
+      this.cdr.detectChanges();
       return;
     }
 
     this.http
-      .get<any[]>(`http://localhost:3000/users?name=${encodeURIComponent(username)}`)
+      .get<any[]>('http://localhost:3000/users')
       .subscribe({
         next: (users) => {
-          if (users.length > 0) {
+          const existingUser = users.find(
+            (user) => user.name?.toLowerCase() === username.toLowerCase(),
+          );
+
+          if (existingUser) {
             this.errorMessage = 'This username already exists.';
+            this.cdr.detectChanges();
             return;
           }
 
+          const nextId =
+            users.reduce((maxId, user) => Math.max(maxId, Number(user.id) || 0), 0) + 1;
+
           this.http
             .post('http://localhost:3000/users', {
+              id: nextId,
               name: username,
               password,
             })
             .subscribe({
               next: () => {
                 this.successMessage = 'Registration successful.';
+                this.cdr.detectChanges();
                 this.router.navigate(['/home']);
               },
               error: () => {
                 this.errorMessage = 'Registration failed. Please try again.';
+                this.cdr.detectChanges();
               },
             });
         },
         error: () => {
           this.errorMessage = 'Unable to reach the server right now.';
+          this.cdr.detectChanges();
         },
       });
   }
