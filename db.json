@@ -1,36 +1,31 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "David",
-      "password": 1234
+      "password": "1234"
     },
     {
-      "id": "2",
-      "name": "Sara",
-      "password": 4321
-    },
-    {
-      "name": "yudit",
-      "password": "123456",
-      "id": "e--zDJfjP3w"
+      "id": 2,
+      "name": "sara",
+      "password": "1234"
     }
   ],
   "trips": [
     {
-      "id": "1",
+      "id": 1,
       "destination": "Paris",
       "price": 1200
     },
     {
-      "id": "2",
+      "id": 2,
       "destination": "London",
       "price": 900
     }
   ],
   "bookings": [
     {
-      "id": "1",
+      "id": 1,
       "userId": 1,
       "tripId": 2
     }
