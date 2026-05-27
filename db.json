@@ -1,33 +1,54 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "David",
       "password": 1234
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Sara",
       "password": 4321
+    },
+    {
+      "name": "CopilotTestUserSara",
+      "password": "123456",
+      "id": "tdpmIc4fnaQ"
+    },
+    {
+      "name": "DbVerifyUser_20260527",
+      "password": "secret123",
+      "id": "KztT6Guz94w"
+    },
+    {
+      "name": "Kaila",
+      "password": "123456",
+      "id": "TAyDqexg_LA"
+    },
+    {
+      "name": "Saras",
+      "password": "1234",
+      "id": "P93ebmk_aWo"
     }
   ],
   "trips": [
     {
-      "id": 1,
+      "id": "1",
       "destination": "Paris",
       "price": 1200
     },
     {
-      "id": 2,
+      "id": "2",
       "destination": "London",
       "price": 900
     }
   ],
   "bookings": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "tripId": 2
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

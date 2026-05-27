@@ -1,1 +1,17 @@
-<p>register-page works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <h2>Register</h2>
+
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" required ngModel />
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" required ngModel />
+
+  <label for="password-verify">Password Verify</label>
+  <input id="password-verify" type="password" name="password-verify" required ngModel />
+
+  <button type="submit">Sign Up</button>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+</form>
