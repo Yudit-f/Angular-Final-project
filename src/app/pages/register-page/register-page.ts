@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login-service';
 
 @Component({
   selector: 'app-register-page',
@@ -19,6 +20,7 @@ export class RegisterPage {
     private http: HttpClient,
     private router: Router,
     private cdr: ChangeDetectorRef,
+    private loginService: LoginService,
   ) {}
 
   onSubmit(form: NgForm): void {
@@ -66,6 +68,8 @@ export class RegisterPage {
             })
             .subscribe({
               next: () => {
+                const user = users[0];
+                this.loginService.login(user);
                 this.successMessage = 'Registration successful.';
                 this.cdr.detectChanges();
                 this.router.navigate(['/home']);

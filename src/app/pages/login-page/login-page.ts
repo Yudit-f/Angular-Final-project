@@ -22,23 +22,27 @@ export class LoginPage {
   ) {}
 
   onSubmit(form: NgForm) {
-    const username = form.value.username;
-    const password = form.value.password;
+    const username = String(form.value.username ?? '').trim();
+    const password = String(form.value.password ?? '');
 
     this.http
       .get<any[]>(
-        `http://localhost:3000/users?name=${username}&password=${password}`
+        `http://localhost:3000/users?name=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
       )
       .subscribe((res) => {
-        if (res.length > 0) {
-          console.log('Login OK');
-          this.message = 'Login successful';
-          this.router.navigate(['/home']);
-          this.loginService.login({ username });
-        } else {
-          console.log('Wrong username or password');
-          this.message = 'Invalid username or password';
-        }
+  if (res.length > 0) {
+    const user = res[0]; 
+
+    console.log('Login OK', user);
+
+    this.loginService.login(user);
+
+    this.message = 'Login successful';
+    this.router.navigate(['/home']);
+  } else {
+    console.log('Wrong username or password');
+    this.message = 'Invalid username or password';
+  }
       });
   }
 }

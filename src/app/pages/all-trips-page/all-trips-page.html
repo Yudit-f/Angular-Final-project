@@ -1,1 +1,22 @@
-<p>all-trips-page works!</p>
+<div class="trips-container">
+
+  @for (trip of trips; track trip.id) {
+
+    <div class="trip-card">
+
+      <img
+        [src]="trip.image"
+        [alt]="trip.name">
+
+      <h2>{{ trip.name }}</h2>
+
+      <p>
+        <strong>Destination:</strong>
+        {{ trip.destination }}
+      </p>
+
+    </div>
+
+  }
+
+</div>

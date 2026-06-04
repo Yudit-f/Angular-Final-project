@@ -11,6 +11,7 @@ export class LoginService {
 
   login(user: any) {
     this.currentUser = user;
+    console.log('User logged in:', this.currentUser);
   }
 
   logout() {
