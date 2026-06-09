@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TripsService,Trip } from '../../services/trips-service';
+import { TripsService } from '../../services/trips-servic';
+import { Trip } from '../../models/trip.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-all-trips-page',
   imports: [],
@@ -9,21 +11,21 @@ import { TripsService,Trip } from '../../services/trips-service';
 
 
 
-export class AllTripsPage {
+export class AllTripsPage implements OnInit{
   trips: Trip[] = [];
-  constructor(private tripsService: TripsService) {}
+  constructor(private tripsService: TripsService,  private router: Router) {}
 
   ngOnInit() {
   this.tripsService.getTrips().subscribe(trips => {
     this.trips = trips;
-        console.log(trips);
+
+        
 
   });
 }
 
+showTripDetails(trip: Trip) {
+  this.router.navigate(['/trip', trip.id]);console.log(trip.id);
 
-
-
-
-
+}
 }
