@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TripsService,Trip } from '../../services/trips-service';
+import { TripsService, Trip } from '../../services/trips-service';
+import { Header } from '../../components/header/header';
+
 @Component({
   selector: 'app-all-trips-page',
-  imports: [],
+  imports: [Header],
   templateUrl: './all-trips-page.html',
   styleUrl: './all-trips-page.scss',
 })

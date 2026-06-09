@@ -1,1 +1,19 @@
-<p>my-trips-page works!</p>
+<app-header></app-header>
+
+@for (item of myTrips; track item.booking.id) {
+  <div class="trip-card">
+    <img [src]="item.trip.image" [alt]="item.trip.name">
+
+    <h2>{{ item.trip.name }}</h2>
+
+    <p>
+      <strong>Destination:</strong>
+      {{ item.trip.destination }}
+    </p>
+
+    <p>
+      <strong>People:</strong>
+      {{ item.booking.people }}
+    </p>
+  </div>
+}
