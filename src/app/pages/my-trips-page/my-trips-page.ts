@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { LoginService } from '../../services/login-service';
 import { Booking, Trip, TripsService } from '../../services/trips-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-trips-page',
@@ -13,6 +14,7 @@ import { Booking, Trip, TripsService } from '../../services/trips-service';
 export class MyTripsPage implements OnInit {
   private tripsService = inject(TripsService);
   private loginService = inject(LoginService);
+  private router = inject(Router);
 
   myTrips: { booking: Booking; trip: Trip }[] = [];
 
@@ -51,5 +53,8 @@ export class MyTripsPage implements OnInit {
   }
     );
 }
+showTripDetails(trip: Trip) {
+  this.router.navigate(['/trip', trip.id]);console.log(trip.id);
 
+}
 }
