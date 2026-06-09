@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Alice Johnson",
       "email": "alice@example.com",
       "password": "alice123",
@@ -47,6 +47,21 @@
       "id": "Z6h7IlIqExg",
       "name": "admin",
       "password": "1"
+    },
+    {
+      "id": 5,
+      "name": "Sara",
+      "password": "1234"
+    },
+    {
+      "id": 6,
+      "name": "ss",
+      "password": "11"
+    },
+    {
+      "id": 7,
+      "name": "Saras",
+      "password": "11"
     }
   ],
   "trips": [
@@ -154,43 +169,43 @@
   "bookings": [
     {
       "id": "1",
-      "tripId": 1,
+      "tripId": "1",
       "userId": 1,
       "people": 2
     },
     {
       "id": "2",
-      "tripId": 2,
+      "tripId": "2",
       "userId": 3,
       "people": 1
     },
     {
       "id": "3",
-      "tripId": 3,
+      "tripId": "3",
       "userId": 1,
       "people": 3
     },
     {
       "id": "4",
-      "tripId": 5,
-      "userId": 4,
+      "tripId": "5",
+      "userId": 6,
       "people": 2
     },
     {
       "id": "5",
-      "tripId": 8,
-      "userId": 3,
+      "tripId": "8",
+      "userId": 6,
       "people": 1
     },
     {
       "id": "6",
-      "tripId": 10,
+      "tripId": "10",
       "userId": 1,
       "people": 2
     },
     {
       "id": "7",
-      "tripId": 1,
+      "tripId": "1",
       "userId": 1,
       "people": 3
     }

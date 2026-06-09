@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TripsService } from '../../services/trips-servic';
 import { Trip } from '../../models/trip.model';
 import { Router } from '@angular/router';
+import { Header } from '../../components/header/header';
 import { LoginService } from '../../services/login-service';
 @Component({
   selector: 'app-all-trips-page',
-  imports: [],
+  imports: [Header],
   templateUrl: './all-trips-page.html',
   styleUrl: './all-trips-page.scss',
 })

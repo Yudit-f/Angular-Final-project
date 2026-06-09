@@ -21,7 +21,7 @@ export class RegisterPage {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private loginService: LoginService,
-  ) {}
+  ) { }
 
   onSubmit(form: NgForm): void {
     this.errorMessage = '';
@@ -60,23 +60,23 @@ export class RegisterPage {
           const nextId =
             users.reduce((maxId, user) => Math.max(maxId, Number(user.id) || 0), 0) + 1;
 
+          const newUser = {
+            id: nextId,
+            name: username,
+            password,
+          };
+          console.log('Creating user:', newUser);
           this.http
-            .post('http://localhost:3000/users', {
-              id: nextId,
-              name: username,
-              password,
-            })
+            .post('http://localhost:3000/users', newUser)
             .subscribe({
-              next: () => {
-                const user = users[0];
-                this.loginService.login(user);
-                this.successMessage = 'Registration successful.';
-                this.cdr.detectChanges();
+              next: (res) => {
+                console.log('User created:', res);
+                this.loginService.login(newUser);
                 this.router.navigate(['/home']);
               },
-              error: () => {
-                this.errorMessage = 'Registration failed. Please try again.';
-                this.cdr.detectChanges();
+              error: (err) => {
+                console.error('POST failed:', err);
+                this.errorMessage = 'Registration failed.';
               },
             });
         },
