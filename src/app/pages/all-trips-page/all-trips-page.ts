@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TripsService } from '../../services/trips-servic';
 import { Trip } from '../../models/trip.model';
 import { Router } from '@angular/router';
+import { Header } from '../../components/header/header';
 @Component({
   selector: 'app-all-trips-page',
   imports: [Header],

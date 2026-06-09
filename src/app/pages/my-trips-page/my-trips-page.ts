@@ -49,4 +49,5 @@ export class MyTripsPage implements OnInit {
     }
     );
   }
+
 }
