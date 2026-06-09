@@ -1,7 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { LoginService } from '../../services/login-service';
-import { Booking, Trip, TripsService } from '../../services/trips-service';
+import {  TripsService } from '../../services/trips-service';
+import { Trip } from '../../models/trip.model';
+import{Booking} from '../../models/booking.model';
 
 @Component({
   selector: 'app-my-trips-page',

@@ -8,21 +8,21 @@
       "isAdmin": false
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "1",
       "email": "bob@example.com",
       "password": "1",
       "isAdmin": true
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Clara Brown",
       "email": "clara@example.com",
       "password": "clara321",
       "isAdmin": false
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "David Wilson",
       "email": "david@example.com",
       "password": "davidpass",
@@ -44,24 +44,29 @@
       "password": "q"
     },
     {
-      "id": "Z6h7IlIqExg",
-      "name": "admin",
-      "password": "1"
-    },
-    {
-      "id": 5,
+      "id": "5",
       "name": "Sara",
       "password": "1234"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "ss",
       "password": "11"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Saras",
       "password": "11"
+    },
+    {
+      "id": "nd62u2z7Nho",
+      "name": "admin",
+      "password": "1"
+    },
+    {
+      "id": "ch-79n11nkI",
+      "name": "e",
+      "password": "e"
     }
   ],
   "trips": [

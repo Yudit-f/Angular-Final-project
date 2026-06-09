@@ -2,11 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Trip } from '../models/trip.model';
+import { Booking } from '../models/booking.model';
 
 
 @Injectable({
   providedIn: 'root',
 })
+
+
+
+
 export class TripsService {
 
   selectedTrip?: Trip;
@@ -29,4 +34,17 @@ export class TripsService {
 getSelectedTrip() {
   return this.selectedTrip;
 }
+
+  getBookings() {
+    return this.http.get<Booking[]>('http://localhost:3000/bookings');
+  }
+  getBookingsByUser(userId: number) {
+    return this.http.get<Booking[]>(
+      `http://localhost:3000/bookings?userId=${userId}`
+    );
+  }
+
+
+
+
 }

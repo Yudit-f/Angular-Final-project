@@ -16,6 +16,8 @@ import { LoginService } from '../../services/login-service';
 export class AllTripsPage implements OnInit{
   trips: Trip[] = [];
   user: any = null;
+  bookings: any[] = [];
+
   
   constructor(private tripsService: TripsService,  private router: Router, public LoginService: LoginService) {}
 
@@ -24,15 +26,22 @@ export class AllTripsPage implements OnInit{
   this.tripsService.getTrips().subscribe(trips => {
     this.trips = trips;
 
-      this.user = this.LoginService.getCurrentUser();
+    this.user = this.LoginService.getCurrentUser();
 
+    this.tripsService.getBookings().subscribe(bookings => {
+    this.bookings = bookings;
+  });
         
 
   });
 }
 
-showTripDetails(trip: Trip) {
-  this.router.navigate(['/trip', trip.id]);console.log(trip.id);
+showTripDetails(trips: Trip) {
+  this.router.navigate(['/trip', trips.id]);
 
+}
+
+canEditOrDelete(trip: Trip) {
+  return !this.bookings.find(b => b.tripId === trip.id);
 }
 }
