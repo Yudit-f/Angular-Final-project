@@ -9,9 +9,9 @@
     },
     {
       "id": "2",
-      "name": "1",
+      "name": "Bob Smith",
       "email": "bob@example.com",
-      "password": "1",
+      "password": "bobpass",
       "isAdmin": true
     },
     {
@@ -52,6 +52,11 @@
       "id": 7,
       "name": "Saras",
       "password": "11"
+    },
+    {
+      "id": 8,
+      "name": "Sarass",
+      "password": "1234"
     }
   ],
   "trips": [
@@ -198,6 +203,54 @@
       "tripId": "1",
       "userId": 1,
       "people": 3
+    },
+    {
+      "id": "265224f5-8d95-453c-8221-5f910690c1ac",
+      "tripId": 1,
+      "userId": 1,
+      "people": 1
+    },
+    {
+      "id": "d0016931-7703-4748-a35e-fe719b1899ab",
+      "tripId": 9,
+      "userId": 1,
+      "people": 1
+    },
+    {
+      "id": "a44f5d4d-c29a-4c64-bb23-48436d1f4fbc",
+      "tripId": 9,
+      "userId": 1,
+      "people": 1
+    },
+    {
+      "id": "9f023add-c4bf-4dd6-8840-91d8e47fba15",
+      "tripId": 1,
+      "userId": 8,
+      "people": 1
+    },
+    {
+      "id": "b258d72a-6247-47fb-8ce7-178a9df445c7",
+      "tripId": 1,
+      "userId": 8,
+      "people": 1
+    },
+    {
+      "id": "6e2ffb03-c077-493f-984a-36cf09b236b1",
+      "tripId": 1,
+      "userId": 8,
+      "people": 1
+    },
+    {
+      "id": "5569b5dc-d06e-4a0c-965a-03486fcc665d",
+      "tripId": 6,
+      "userId": 8,
+      "people": 1
+    },
+    {
+      "id": "789e913d-3437-4730-b1fb-a31aceb34c84",
+      "tripId": 6,
+      "userId": 8,
+      "people": 1
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

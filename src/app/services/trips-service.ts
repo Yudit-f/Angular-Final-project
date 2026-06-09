@@ -23,6 +23,7 @@ export interface Booking {
   providedIn: 'root',
 })
 export class TripsService {
+  selectedTrip?: Trip;
 
   private http = inject(HttpClient);
 
@@ -37,5 +38,22 @@ export class TripsService {
     return this.http.get<Booking[]>(
       `http://localhost:3000/bookings?userId=${userId}`
     );
+  }
+  createBooking(booking: any) {
+    return this.http.post('http://localhost:3000/bookings', booking);
+  }
+
+  getTripById(id: string) {
+    return this.http.get<Trip>(`http://localhost:3000/trips/${id}`);
+  }
+
+
+
+  setSelectedTrip(trip: Trip) {
+    this.selectedTrip = trip;
+  }
+
+  getSelectedTrip() {
+    return this.selectedTrip;
   }
 }

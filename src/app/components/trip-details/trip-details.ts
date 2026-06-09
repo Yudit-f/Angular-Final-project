@@ -1,28 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TripsService } from '../../services/trips-servic';
-import { Trip } from '../../models/trip.model';
-import { OnInit } from '@angular/core';
-
+import { TripsService, Trip } from '../../services/trips-service';
+// import { Trip } from '../../models/trip.model';
+import { LoginService } from '../../services/login-service';
 @Component({
   selector: 'app-trip-details',
   templateUrl: './trip-details.html',
   styleUrls: ['./trip-details.scss']
 })
-export class TripDetailsComponent {
-
+export class TripDetailsComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private tripsService = inject(TripsService);
+  private loginService = inject(LoginService);
+  people: number = 1;
   trip!: Trip;
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
 
-  constructor(
-    private route: ActivatedRoute,
-    private tripsService: TripsService
-  ) {
+    if (!id) return;
 
-const id = this.route.snapshot.paramMap.get('id');
+    this.tripsService.getTripById(id).subscribe(data => {
+      this.trip = data;
+    });
+  }
 
-this.tripsService.getTripById(id!).subscribe(data => {
-  this.trip = data;
-});
+  register(): void {
+    const user = this.loginService.getCurrentUser();
+    if (!user) return;
 
+    const booking = {
+      id: crypto.randomUUID(),
+      tripId: Number(this.trip.id),
+      userId: Number(user.id),
+      people: this.people
+    };
+
+    this.tripsService.createBooking(booking).subscribe(() => {
+      alert('נרשמת בהצלחה לטיול!');
+    });
+   
   }
 }

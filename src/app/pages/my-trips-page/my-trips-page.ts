@@ -31,23 +31,25 @@ export class MyTripsPage implements OnInit {
         this.myTrips = bookings
           .map(booking => {
             const trip = trips.find(
-              t => t.id === booking.tripId
+              trip => String(trip.id) === String(booking.tripId)
             );
+            console.log(bookings);
+            console.log(trips);
+            
+        if (!trip) return null;
 
-            if (!trip) return null;
-
-            return {
-              booking,
-              trip
-            };
-          })
-          .filter(item => item !== null) as {
-            booking: Booking;
-            trip: Trip;
-          }[];
-      });
-    }
-    );
+        return {
+          booking,
+          trip
+        };
+      })
+        .filter(item => item !== null) as {
+          booking: Booking;
+          trip: Trip;
+        }[];
+    });
   }
+    );
+}
 
 }
