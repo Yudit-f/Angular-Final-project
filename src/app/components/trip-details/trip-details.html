@@ -1,0 +1,32 @@
+<!-- <div>
+  <h2>{{ trip.name }}</h2>
+
+  <img [src]="trip.image">
+
+  <p>{{ trip.destination }}</p>
+  <p>{{ trip.startDate }} - {{ trip.endDate }}</p>
+  <p>{{ trip.price }}$</p>
+  <p>{{ trip.description }}</p>
+</div> -->
+
+
+@if (trip) {
+  <div class="trip-card">
+
+    <h2>{{ trip.name }}</h2>
+
+    <img [src]="trip.image" [alt]="trip.name" />
+
+    <p><strong>Destination:</strong> {{ trip.destination }}</p>
+
+    <p>
+      <strong>Dates:</strong>
+      {{ trip.startDate }} - {{ trip.endDate }}
+    </p>
+
+    <p><strong>Price:</strong> {{ trip.price }}$</p>
+
+    <p>{{ trip.description }}</p>
+
+  </div>
+}
