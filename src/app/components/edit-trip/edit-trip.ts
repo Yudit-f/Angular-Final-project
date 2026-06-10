@@ -16,15 +16,18 @@ export class EditTrip implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
 
     const id = this.route.snapshot.paramMap.get('id');
 
+    console.log('ID:', id);
+
     this.http
       .get(`http://localhost:3000/trips/${id}`)
       .subscribe(trip => {
+            console.log('TRIP FROM SERVER:', trip)
         this.trip = trip;
       });
   }

@@ -11,7 +11,7 @@
   [(ngModel)]="dateFilter"
   (change)="applyFilters()">
 <div class="trips-container">
-@if (filteredTrips.length === 0) {
+@if (trips.length > 0 && filteredTrips.length === 0) {
   <p>No results found.</p>
 }
   @for (trip of filteredTrips; track trip.id) {
