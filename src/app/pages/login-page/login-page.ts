@@ -26,10 +26,14 @@ export class LoginPage {
     const password = String(form.value.password ?? '');
 
     this.http
-      .get<any[]>(
-        `http://localhost:3000/users?name=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-      )
+      this.http.get<any[]>(
+  `http://localhost:3000/users?name=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+)
       .subscribe((res) => {
+          console.log('Response:', res);
+          console.log(username, password);
+          console.log('FORM VALUE:', form.value);
+
   if (res.length > 0) {
     const user = res[0]; 
 

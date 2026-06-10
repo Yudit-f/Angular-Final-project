@@ -41,7 +41,5 @@ showTripDetails(trips: Trip) {
 
 }
 
-canEditOrDelete(trip: Trip) {
-  return !this.bookings.find(b => b.tripId === trip.id);
-}
+
 }

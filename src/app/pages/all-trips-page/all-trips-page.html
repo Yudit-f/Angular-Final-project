@@ -17,20 +17,19 @@
         {{ trip.destination }}
       </p>
       <button (click)="showTripDetails(trip)"> More Info</button>
+      @if (user.isAdmin === true &&  bookings.find((b) => b.tripId === trip.id)) {
+      <button >עריכה</button>
+      <button >מחיקה</button>
+}
 
     </div>
 
   }
-    @if (user === 'admin') {
+  
+
+@if (user.isAdmin) {
     <button>הוספת טיול</button>
 }
 
-@if (user.isAdmin === true ) {
-    <button>הוספת טיול</button>
-}
 
-@if (user.isAdmin === true && canEditOrDelete(trips.tripId)) {
-  <button >עריכה</button>
-  <button >מחיקה</button>
-}
 </div>

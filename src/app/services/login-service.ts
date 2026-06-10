@@ -15,6 +15,7 @@ export class LoginService {
 
   login(user: any) {
     this.currentUser = user;
+    
 
     if (typeof window !== 'undefined') {
       window.sessionStorage.setItem('currentUser', JSON.stringify(user));

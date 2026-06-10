@@ -1,28 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Alice Johnson",
       "email": "alice@example.com",
       "password": "alice123",
       "isAdmin": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "1",
       "email": "bob@example.com",
       "password": "bobpass",
       "isAdmin": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Clara Brown",
       "email": "clara@example.com",
       "password": "clara321",
       "isAdmin": false
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "David Wilson",
       "email": "david@example.com",
       "password": "davidpass",
@@ -59,9 +59,14 @@
       "password": "11"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sarass",
       "password": "1234"
+    },
+    {
+      "id": "HaLY4RriNoc",
+      "name": "4",
+      "password": "4"
     }
   ],
   "trips": [
