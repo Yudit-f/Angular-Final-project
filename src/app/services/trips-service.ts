@@ -12,6 +12,7 @@ export interface Trip {
   price: number;
   description: string;
   image: string;
+  people: number;
 }
 export interface Booking {
   id: string;
@@ -47,7 +48,9 @@ export class TripsService {
     return this.http.get<Trip>(`http://localhost:3000/trips/${id}`);
   }
 
-
+deleteBooking(id: string) {
+  return this.http.delete(`http://localhost:3000/bookings/${id}`);
+}
 
   setSelectedTrip(trip: Trip) {
     this.selectedTrip = trip;

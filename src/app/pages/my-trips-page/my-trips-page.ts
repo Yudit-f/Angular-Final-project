@@ -15,6 +15,7 @@ import{Booking} from '../../models/booking.model';
 export class MyTripsPage implements OnInit {
   private tripsService = inject(TripsService);
   private loginService = inject(LoginService);
+  private router = inject(Router);
 
   myTrips: { booking: Booking; trip: Trip }[] = [];
 
@@ -53,5 +54,8 @@ export class MyTripsPage implements OnInit {
   }
     );
 }
+showTripDetails(trip: Trip) {
+  this.router.navigate(['/trip', trip.id]);console.log(trip.id);
 
+}
 }
