@@ -57,6 +57,11 @@
       "id": 8,
       "name": "Sarass",
       "password": "1234"
+    },
+    {
+      "id": 9,
+      "name": "ש",
+      "password": "ש"
     }
   ],
   "trips": [

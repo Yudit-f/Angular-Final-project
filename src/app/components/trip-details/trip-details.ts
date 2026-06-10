@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TripsService, Trip, Booking } from '../../services/trips-service';
 import { LoginService } from '../../services/login-service';
 import { Header } from '../../components/header/header';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-trip-details',
   imports: [Header],
@@ -14,6 +14,7 @@ export class TripDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private tripsService = inject(TripsService);
   private loginService = inject(LoginService);
+  private router = inject(Router);
   userBooking: Booking | null = null;
   people: number = 1;
   trip!: Trip;
@@ -68,13 +69,15 @@ export class TripDetailsComponent implements OnInit {
       this.loadUserBooking();
     });
   }
-  cancelBooking(): void {
-    if (!this.userBooking) return;
+cancelBooking(): void {
+  if (!this.userBooking) return;
 
-    this.tripsService.deleteBooking(this.userBooking.id)
-      .subscribe(() => {
-        this.userBooking = null;
-        this.loadRegisteredPeople();
-      });
-  }
+  this.tripsService.deleteBooking(this.userBooking.id)
+    .subscribe(() => {
+      this.userBooking = null;
+      this.loadRegisteredPeople();
+
+      this.router.navigate(['/my-trips']);
+    });
+}
 }

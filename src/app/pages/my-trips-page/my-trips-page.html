@@ -1,5 +1,7 @@
 <app-header></app-header>
-
+@if(myTrips.length === 0) {
+    <p>You have no registered trips yet.</p>
+}
 @for (item of myTrips; track item.booking.id) {
 <div class="trip-card">
     <img [src]="item.trip.image" [alt]="item.trip.name">
