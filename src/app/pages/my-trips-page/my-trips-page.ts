@@ -4,7 +4,7 @@ import { LoginService } from '../../services/login-service';
 import {  TripsService } from '../../services/trips-service';
 import { Trip } from '../../models/trip.model';
 import{Booking} from '../../models/booking.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-my-trips-page',
   standalone: true,

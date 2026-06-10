@@ -4,9 +4,12 @@ import { Trip } from '../../models/trip.model';
 import { Router } from '@angular/router';
 import { Header } from '../../components/header/header';
 import { LoginService } from '../../services/login-service';
+import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-all-trips-page',
-  imports: [Header],
+  imports: [Header, RouterLink],
   templateUrl: './all-trips-page.html',
   styleUrl: './all-trips-page.scss',
 })
@@ -19,7 +22,7 @@ export class AllTripsPage implements OnInit{
   bookings: any[] = [];
 
   
-  constructor(private tripsService: TripsService,  private router: Router, public LoginService: LoginService) {}
+  constructor(private tripsService: TripsService,  private router: Router, public LoginService: LoginService, private http: HttpClient) {}
 
   
   ngOnInit() {
@@ -41,5 +44,9 @@ showTripDetails(trips: Trip) {
 
 }
 
-
-}
+deleteTrip(trip: Trip) {
+  this.http.delete(`http://localhost:3000/trips/${trip.id}`)
+    .subscribe(() => {
+      this.trips = this.trips.filter(t => t.id !== trip.id);
+    });
+}}

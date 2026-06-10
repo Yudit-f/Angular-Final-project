@@ -17,16 +17,15 @@
         {{ trip.destination }}
       </p>
       <button (click)="showTripDetails(trip)"> More Info</button>
-      @if (user.isAdmin === true &&  bookings.find((b) => b.tripId === trip.id)) {
-      <button >עריכה</button>
-      <button >מחיקה</button>
+      @if (user.isAdmin === true &&  !(bookings.find((b) => b.tripId === trip.id))) {
+      <button [routerLink]="['/edit-trip', trip.id]"> עריכה</button>
+      
+       <button (click)="deleteTrip(trip)">מחיקה</button>
 }
 
     </div>
 
   }
-  
-
 @if (user.isAdmin) {
     <button>הוספת טיול</button>
 }

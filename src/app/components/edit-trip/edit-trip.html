@@ -1,0 +1,43 @@
+<form #form="ngForm" (ngSubmit)="save(form)">
+
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="trip.name">
+
+  <input
+    type="text"
+    
+    name="destination"
+    [(ngModel)]="trip.destination">
+
+  <input
+    type="date"
+    name="startDate"
+    [(ngModel)]="trip.startDate">
+
+  <input
+    type="date"
+    name="endDate"
+    [(ngModel)]="trip.endDate">
+
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="trip.price">
+
+  <textarea
+    name="description"
+    [(ngModel)]="trip.description">
+  </textarea>
+
+  <input
+    type="text"
+    name="image"
+    [(ngModel)]="trip.image">
+
+  <button type="submit">
+    שמור
+  </button>
+
+</form>
