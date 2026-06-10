@@ -18,5 +18,7 @@ export class HeaderButtons {
   logout(): void {
     this.loginService.logout();
     this.router.navigate(['/login']);
-  }
+  }test() {
+  console.log('CLICK');
+}
 }

@@ -7,24 +7,28 @@ import { LoginService } from '../../services/login-service';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-all-trips-page',
-  imports: [Header, RouterLink],
+  imports: [Header, RouterLink, FormsModule],
   templateUrl: './all-trips-page.html',
   styleUrl: './all-trips-page.scss',
 })
 
 
 
-export class AllTripsPage implements OnInit{
+export class AllTripsPage implements OnInit {
   trips: Trip[] = [];
   user: any = null;
   bookings: any[] = [];
 
   
-  constructor(private tripsService: TripsService,  private router: Router, public LoginService: LoginService, private http: HttpClient) {}
+  constructor(private tripsService: TripsService, private router: Router, public LoginService: LoginService, private http: HttpClient) { }
+  filteredTrips: Trip[] = [];
 
   
+  searchTerm = '';
+  dateFilter = '';
   ngOnInit() {
   this.tripsService.getTrips().subscribe(trips => {
     this.trips = trips;
