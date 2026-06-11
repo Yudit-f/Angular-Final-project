@@ -1,46 +1,37 @@
 <app-header></app-header>
 
-<input
-  type="text"
-  placeholder="Destination or Price"
-  [(ngModel)]="searchTerm"
-  (input)="applyFilters()">
+<input type="text" placeholder="Destination or Price" [(ngModel)]="searchTerm" (input)="applyFilters()">
 
-<input
-  type="date"
-  [(ngModel)]="dateFilter"
-  (change)="applyFilters()">
+<input type="date" [(ngModel)]="dateFilter" (change)="applyFilters()">
 <div class="trips-container">
-@if (trips.length > 0 && filteredTrips.length === 0) {
+  @if (trips.length > 0 && filteredTrips.length === 0) {
   <p>No results found.</p>
-}
+  }@if (user.isAdmin) {
+  <button (click)="createTrip()">הוספת טיול</button>
+  }
   @for (trip of filteredTrips; track trip.id) {
 
-    <div class="trip-card">
+  <div class="trip-card">
 
-      <img
-        [src]="trip.image"
-        [alt]="trip.name">
+    <img [src]="trip.image" [alt]="trip.name">
 
-      <h2>{{ trip.name }}</h2>
+    <h2>{{ trip.name }}</h2>
 
-      <p>
-        <strong>Destination:</strong>
-        {{ trip.destination }}
-      </p>
-      <button (click)="showTripDetails(trip)"> More Info</button>
-      @if (user.isAdmin === true &&  !(bookings.find((b) => b.tripId === trip.id))) {
-      <button [routerLink]="['/edit-trip', trip.id]"> עריכה</button>
-      
-       <button (click)="deleteTrip(trip)">מחיקה</button>
-}
+    <p>
+      <strong>Destination:</strong>
+      {{ trip.destination }}
+    </p>
+    <button (click)="showTripDetails(trip)"> More Info</button>
+    @if (user.isAdmin === true && !(bookings.find((b) => b.tripId === trip.id))) {
+    <button (click)="editTrip(trip)"> עריכה</button>
 
-    </div>
+    <button (click)="deleteTrip(trip)">מחיקה</button>
+    }
+
+  </div>
 
   }
-@if (user.isAdmin) {
-    <button>הוספת טיול</button>
-}
+
 
 
 </div>

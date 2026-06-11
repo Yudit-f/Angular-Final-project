@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { Header } from '../../components/header/header';
 @Component({
   selector: 'app-edit-trip',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, Header],
   templateUrl: './edit-trip.html'
 })
 export class EditTrip implements OnInit {

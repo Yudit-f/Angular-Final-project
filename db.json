@@ -67,7 +67,7 @@
   "trips": [
     {
       "id": "1",
-      "name": "Paris City Tour",
+      "name": "",
       "destination": "Paris, France",
       "startDate": "2026-03-15",
       "endDate": "2026-03-20",
@@ -157,13 +157,23 @@
     },
     {
       "id": "10",
-      "name": "Istanbul Wonders",
-      "destination": "Istanbul, Turkey",
+      "name": "bana",
+      "destination": "ty",
       "startDate": "2026-08-01",
       "endDate": "2026-08-06",
       "price": 1500,
       "description": "Hagia Sophia, Blue Mosque, and Bosphorus cruise.",
       "image": "https://picsum.photos/id/1049/400/200"
+    },
+    {
+      "id": "000a57e7-821c-4ad3-974d-a4655785831e",
+      "name": "hi",
+      "destination": "ghi",
+      "startDate": "2026-06-16",
+      "endDate": "2026-06-26",
+      "price": 0,
+      "description": "hihi",
+      "image": ""
     }
   ],
   "bookings": [],

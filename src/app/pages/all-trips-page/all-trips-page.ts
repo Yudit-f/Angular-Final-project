@@ -29,7 +29,7 @@ export class AllTripsPage implements OnInit {
     private router: Router,
     public loginService: LoginService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
 
@@ -52,7 +52,12 @@ export class AllTripsPage implements OnInit {
   showTripDetails(trip: Trip): void {
     this.router.navigate(['/trip', trip.id]);
   }
-
+  editTrip(trip: Trip): void {
+    this.router.navigate(['/edit-trip', trip.id]);
+  }
+  createTrip(): void {
+    this.router.navigate(['/create-trip']);
+  }
   // FILTERING
   applyFilters(): void {
     let result = [...this.trips];

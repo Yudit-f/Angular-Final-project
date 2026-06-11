@@ -1,0 +1,59 @@
+<app-header></app-header>
+<form #form="ngForm" (ngSubmit)="save(form)">
+
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="trip.name"
+    placeholder="Trip Name"
+    required
+    aria-label="Trip Name">
+
+  <input
+    type="text"
+    name="destination"
+    [(ngModel)]="trip.destination"
+    placeholder="Destination"
+    required
+    aria-label="Destination">
+
+  <input
+    type="date"
+    name="startDate"
+    [(ngModel)]="trip.startDate"
+    required
+    aria-label="Start Date">
+
+  <input
+    type="date"
+    name="endDate"
+    [(ngModel)]="trip.endDate"
+    required
+    aria-label="End Date">
+
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="trip.price"
+    required
+    aria-label="Price">
+
+  <textarea
+    name="description"
+    [(ngModel)]="trip.description"
+    placeholder="Description"
+    aria-label="Description">
+  </textarea>
+
+  <input
+    type="text"
+    name="image"
+    [(ngModel)]="trip.image"
+    placeholder="Image URL"
+    aria-label="Image URL">
+
+  <button type="submit">
+    Create Trip
+  </button>
+
+</form>
