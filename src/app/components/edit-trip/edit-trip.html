@@ -1,45 +1,39 @@
 <app-header></app-header>
-<form #form="ngForm" (ngSubmit)="save(form)">
 
-<p>{{ trip.name }}</p>
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="trip.name">
+<main class="trip-form-page">
+  <section class="form-intro">
+    <p class="eyebrow">Admin</p>
+    <h1>Edit {{ trip.name || 'trip package' }}.</h1>
+  </section>
 
-  <input
-    type="text"
-    
-    name="destination"
-    [(ngModel)]="trip.destination">
+  <form #form="ngForm" (ngSubmit)="save(form)">
+    <label for="name">Trip Name</label>
+    <input id="name" type="text" name="name" [(ngModel)]="trip.name">
 
-  <input
-    type="date"
-    name="startDate"
-    [(ngModel)]="trip.startDate">
+    <label for="destination">Destination</label>
+    <input id="destination" type="text" name="destination" [(ngModel)]="trip.destination">
 
-  <input
-    type="date"
-    name="endDate"
-    [(ngModel)]="trip.endDate">
+    <div class="form-grid">
+      <div>
+        <label for="startDate">Start Date</label>
+        <input id="startDate" type="date" name="startDate" [(ngModel)]="trip.startDate">
+      </div>
 
-  <input
-    type="number"
-    name="price"
-    [(ngModel)]="trip.price">
+      <div>
+        <label for="endDate">End Date</label>
+        <input id="endDate" type="date" name="endDate" [(ngModel)]="trip.endDate">
+      </div>
+    </div>
 
-  <textarea
-    name="description"
-    [(ngModel)]="trip.description">
-  </textarea>
+    <label for="price">Price</label>
+    <input id="price" type="number" name="price" [(ngModel)]="trip.price">
 
-  <input
-    type="text"
-    name="image"
-    [(ngModel)]="trip.image">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" [(ngModel)]="trip.description"></textarea>
 
-  <button type="submit">
-    שמור
-  </button>
+    <label for="image">Image URL</label>
+    <input id="image" type="text" name="image" [(ngModel)]="trip.image">
 
-</form>
+    <button type="submit">Save Trip</button>
+  </form>
+</main>

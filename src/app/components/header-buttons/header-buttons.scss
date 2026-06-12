@@ -1,0 +1,37 @@
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.nav-actions button {
+  min-height: 42px;
+  padding: 0.65rem 0.9rem;
+  color: var(--ink);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav-actions button:hover {
+  color: var(--brand-dark);
+  background: var(--surface-soft);
+  box-shadow: none;
+}
+
+.btnAlltrips {
+  color: #ffffff !important;
+  background: var(--brand) !important;
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.18) !important;
+}
+
+.btnLogout {
+  color: var(--danger) !important;
+}
+
+@media (max-width: 780px) {
+  .nav-actions,
+  .nav-actions button {
+    width: 100%;
+  }
+}

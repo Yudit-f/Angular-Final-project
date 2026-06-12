@@ -1,59 +1,39 @@
 <app-header></app-header>
-<form #form="ngForm" (ngSubmit)="save(form)">
 
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="trip.name"
-    placeholder="Trip Name"
-    required
-    aria-label="Trip Name">
+<main class="trip-form-page">
+  <section class="form-intro">
+    <p class="eyebrow">Admin</p>
+    <h1>Create a new travel package.</h1>
+  </section>
 
-  <input
-    type="text"
-    name="destination"
-    [(ngModel)]="trip.destination"
-    placeholder="Destination"
-    required
-    aria-label="Destination">
+  <form #form="ngForm" (ngSubmit)="save(form)">
+    <label for="name">Trip Name</label>
+    <input id="name" type="text" name="name" [(ngModel)]="trip.name" placeholder="Santorini Escape" required>
 
-  <input
-    type="date"
-    name="startDate"
-    [(ngModel)]="trip.startDate"
-    required
-    aria-label="Start Date">
+    <label for="destination">Destination</label>
+    <input id="destination" type="text" name="destination" [(ngModel)]="trip.destination" placeholder="Santorini, Greece" required>
 
-  <input
-    type="date"
-    name="endDate"
-    [(ngModel)]="trip.endDate"
-    required
-    aria-label="End Date">
+    <div class="form-grid">
+      <div>
+        <label for="startDate">Start Date</label>
+        <input id="startDate" type="date" name="startDate" [(ngModel)]="trip.startDate" required>
+      </div>
 
-  <input
-    type="number"
-    name="price"
-    [(ngModel)]="trip.price"
-    required
-    aria-label="Price">
+      <div>
+        <label for="endDate">End Date</label>
+        <input id="endDate" type="date" name="endDate" [(ngModel)]="trip.endDate" required>
+      </div>
+    </div>
 
-  <textarea
-    name="description"
-    [(ngModel)]="trip.description"
-    placeholder="Description"
-    aria-label="Description">
-  </textarea>
+    <label for="price">Price</label>
+    <input id="price" type="number" name="price" [(ngModel)]="trip.price" required>
 
-  <input
-    type="text"
-    name="image"
-    [(ngModel)]="trip.image"
-    placeholder="Image URL"
-    aria-label="Image URL">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" [(ngModel)]="trip.description" placeholder="Describe the highlights, itinerary, and experience."></textarea>
 
-  <button type="submit">
-    Create Trip
-  </button>
+    <label for="image">Image URL</label>
+    <input id="image" type="text" name="image" [(ngModel)]="trip.image" placeholder="https://...">
 
-</form>
+    <button type="submit">Create Trip</button>
+  </form>
+</main>

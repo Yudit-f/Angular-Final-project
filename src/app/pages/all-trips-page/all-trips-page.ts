@@ -4,13 +4,12 @@ import { Trip } from '../../models/trip.model';
 import { Router } from '@angular/router';
 import { Header } from '../../components/header/header';
 import { LoginService } from '../../services/login-service';
-import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-all-trips-page',
-  imports: [Header, RouterLink, FormsModule],
+  imports: [Header, FormsModule],
   templateUrl: './all-trips-page.html',
   styleUrl: './all-trips-page.scss',
 })
@@ -85,13 +84,21 @@ export class AllTripsPage implements OnInit {
   }
 
   // DELETE
-  deleteTrip(trip: Trip): void {
-    this.http.delete(`http://localhost:3000/trips/${trip.id}`)
-      .subscribe(() => {
-        this.trips = this.trips.filter(t => t.id !== trip.id);
+deleteTrip(trip: Trip): void {
+  const confirmed = confirm(
+    `Are you sure you want to delete "${trip.destination}"?`
+  );
 
-        // keep UI synced
-        this.applyFilters();
-      });
+  if (!confirmed) {
+    return;
   }
+
+  this.http.delete(`http://localhost:3000/trips/${trip.id}`)
+    .subscribe(() => {
+      this.trips = this.trips.filter(t => t.id !== trip.id);
+
+      // keep UI synced
+      this.applyFilters();
+    });
+}
 }

@@ -1,37 +1,47 @@
 <app-header></app-header>
 
-<input type="text" placeholder="Destination or Price" [(ngModel)]="searchTerm" (input)="applyFilters()">
+<main class="trips-page">
+  <section class="page-intro">
+    <p class="eyebrow">Available packages</p>
+    <h1>Choose a trip that fits your dates and budget.</h1>
+  </section>
 
-<input type="date" [(ngModel)]="dateFilter" (change)="applyFilters()">
-<div class="trips-container">
-  @if (trips.length > 0 && filteredTrips.length === 0) {
-  <p>No results found.</p>
-  }@if (user.isAdmin) {
-  <button (click)="createTrip()">הוספת טיול</button>
-  }
-  @for (trip of filteredTrips; track trip.id) {
-
-  <div class="trip-card">
-
-    <img [src]="trip.image" [alt]="trip.name">
-
-    <h2>{{ trip.name }}</h2>
-
-    <p>
-      <strong>Destination:</strong>
-      {{ trip.destination }}
-    </p>
-    <button (click)="showTripDetails(trip)"> More Info</button>
-    @if (user.isAdmin === true && !(bookings.find((b) => b.tripId === trip.id))) {
-    <button (click)="editTrip(trip)"> עריכה</button>
-
-    <button (click)="deleteTrip(trip)">מחיקה</button>
+  <section class="search-panel" aria-label="Trip filters">
+    <input type="text" placeholder="Search destination or price" [(ngModel)]="searchTerm" (input)="applyFilters()">
+    <input type="date" [(ngModel)]="dateFilter" (change)="applyFilters()">
+    @if (user.isAdmin) {
+    <button class="admin-action" (click)="createTrip()">Add trip</button>
     }
+  </section>
 
-  </div>
-
+  @if (trips.length > 0 && filteredTrips.length === 0) {
+  <p class="empty-state">No results found.</p>
   }
 
+  <div class="trips-container">
+    @for (trip of filteredTrips; track trip.id) {
+    <div class="trip-card">
+      <img [src]="trip.image" [alt]="trip.name || trip.destination">
 
+      <div class="trip-content">
+        <p class="trip-tag">{{ trip.startDate }} - {{ trip.endDate }}</p>
+        <h2>{{ trip.name || trip.destination }}</h2>
 
-</div>
+        <p>
+          <strong>Destination:</strong>
+          {{ trip.destination }}
+        </p>
+        <p class="price">${{ trip.price }}</p>
+
+        <div class="card-actions">
+          <button (click)="showTripDetails(trip)">More Info</button>
+          @if (user.isAdmin === true && !(bookings.find((b) => b.tripId === trip.id))) {
+          <button class="secondary" (click)="editTrip(trip)">Edit</button>
+          <button class="danger" (click)="deleteTrip(trip)">Delete</button>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</main>

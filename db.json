@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Alice Johnson",
       "email": "alice@example.com",
       "password": "alice123",
@@ -39,29 +39,39 @@
       "password": "ה"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sara",
       "password": "1234"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "ss",
       "password": "11"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Saras",
       "password": "11"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sarass",
       "password": "1234"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "ש",
       "password": "ש"
+    },
+    {
+      "id": "eW7f1rp5Uvo",
+      "name": "f",
+      "password": "f"
+    },
+    {
+      "id": "1WJ2GAQvYnI",
+      "name": "y",
+      "password": "y"
     }
   ],
   "trips": [
@@ -73,7 +83,7 @@
       "endDate": "2026-03-20",
       "price": 1500,
       "description": "Explore the Eiffel Tower, Louvre Museum, and Seine river cruise.",
-      "image": "https://picsum.photos/id/1011/400/200"
+      "image": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f"
     },
     {
       "id": "2",
@@ -83,7 +93,7 @@
       "endDate": "2026-04-06",
       "price": 1400,
       "description": "Visit Big Ben, London Eye, and British Museum.",
-      "image": "https://picsum.photos/id/1015/400/200"
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad"
     },
     {
       "id": "3",
@@ -93,7 +103,7 @@
       "endDate": "2026-04-20",
       "price": 1600,
       "description": "Tour the Colosseum, Vatican City, and Sistine Chapel.",
-      "image": "https://picsum.photos/id/1021/400/200"
+      "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5"
     },
     {
       "id": "4",
@@ -103,7 +113,7 @@
       "endDate": "2026-05-10",
       "price": 1550,
       "description": "Enjoy Gaudi architecture, La Rambla, and Mediterranean beaches.",
-      "image": "https://picsum.photos/id/1025/400/200"
+      "image": "https://images.unsplash.com/photo-1583422409516-2895a77efded"
     },
     {
       "id": "5",
@@ -113,7 +123,7 @@
       "endDate": "2026-05-25",
       "price": 1300,
       "description": "Canal cruises, Van Gogh Museum, and local markets.",
-      "image": "https://picsum.photos/id/1031/400/200"
+      "image": "https://images.unsplash.com/photo-1534351590666-13e3e96b5017"
     },
     {
       "id": "6",
@@ -123,7 +133,7 @@
       "endDate": "2026-06-06",
       "price": 1350,
       "description": "Charles Bridge, Old Town Square, and Prague Castle.",
-      "image": "https://picsum.photos/id/1035/400/200"
+      "image": "https://images.unsplash.com/photo-1541849546-216549ae216d"
     },
     {
       "id": "7",
@@ -133,7 +143,7 @@
       "endDate": "2026-06-15",
       "price": 1450,
       "description": "Visit Schönbrunn Palace, State Opera, and MuseumsQuartier.",
-      "image": "https://picsum.photos/id/1038/400/200"
+      "image": "https://images.unsplash.com/photo-1516550893923-42d28e5677af"
     },
     {
       "id": "8",
@@ -143,7 +153,7 @@
       "endDate": "2026-07-06",
       "price": 1700,
       "description": "Relax on volcanic beaches, explore Oia village and sunset cruises.",
-      "image": "https://picsum.photos/id/1041/400/200"
+      "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff"
     },
     {
       "id": "9",
@@ -153,29 +163,26 @@
       "endDate": "2026-07-20",
       "price": 1400,
       "description": "Historic trams, Alfama district, and local cuisine tours.",
-      "image": "https://picsum.photos/id/1045/400/200"
+      "image": "https://images.unsplash.com/photo-1585208798174-6cedd86e019a"
     },
     {
-      "id": "10",
-      "name": "bana",
-      "destination": "ty",
-      "startDate": "2026-08-01",
-      "endDate": "2026-08-06",
-      "price": 1500,
-      "description": "Hagia Sophia, Blue Mosque, and Bosphorus cruise.",
-      "image": "https://picsum.photos/id/1049/400/200"
-    },
-    {
-      "id": "000a57e7-821c-4ad3-974d-a4655785831e",
-      "name": "hi",
-      "destination": "ghi",
-      "startDate": "2026-06-16",
-      "endDate": "2026-06-26",
-      "price": 0,
-      "description": "hihi",
+      "id": "WiO8YFjyHP8",
+      "name": "brasil",
+      "destination": "trip",
+      "startDate": "5646-04-23",
+      "endDate": "275760-03-02",
+      "price": 3000,
+      "description": "",
       "image": ""
     }
   ],
-  "bookings": [],
+  "bookings": [
+    {
+      "id": "Xd5jYAglcxY",
+      "tripId": "1",
+      "userId": 2,
+      "people": 3
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

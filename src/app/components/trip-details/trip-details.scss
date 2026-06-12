@@ -1,0 +1,123 @@
+.details-page {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.trip-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.media-wrap {
+  min-height: 100%;
+  background: var(--surface-soft);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+}
+
+.trip-info {
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--brand);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.2rem;
+}
+
+dl div {
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbfd;
+}
+
+dt {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 0.3rem 0 0;
+  font-weight: 800;
+}
+
+.description {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.booking-box {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.4rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+label {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.booked {
+  grid-template-columns: 1fr auto;
+}
+
+.booked p {
+  margin: 0;
+  font-weight: 800;
+}
+
+.danger {
+  background: var(--danger);
+}
+
+@media (max-width: 880px) {
+  .trip-card {
+    grid-template-columns: 1fr;
+  }
+
+  img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 620px) {
+  dl,
+  .booking-box,
+  .booked {
+    grid-template-columns: 1fr;
+  }
+}

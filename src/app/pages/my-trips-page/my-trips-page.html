@@ -1,23 +1,36 @@
 <app-header></app-header>
-@if(myTrips.length === 0) {
-    <p>You have no registered trips yet.</p>
-}
-@for (item of myTrips; track item.booking.id) {
-<div class="trip-card">
-    <img [src]="item.trip.image" [alt]="item.trip.name">
 
-    <h2>{{ item.trip.name }}</h2>
+<main class="my-trips-page">
+  <section class="page-intro">
+    <p class="eyebrow">My bookings</p>
+    <h1>Your saved travel plans.</h1>
+  </section>
 
-    <p>
-        <strong>Destination:</strong>
-        {{ item.trip.destination }}
-    </p>
+  @if(myTrips.length === 0) {
+  <p class="empty-state">You have no registered trips yet.</p>
+  }
 
-    <p>
-        <strong>People:</strong>
-        {{ item.booking.people }}
-    </p>
-    <button (click)="showTripDetails(item.trip)"> More Info</button>
+  <div class="trips-container">
+    @for (item of myTrips; track item.booking.id) {
+    <div class="trip-card">
+      <img [src]="item.trip.image" [alt]="item.trip.name || item.trip.destination">
 
-</div>
-}
+      <div class="trip-content">
+        <p class="trip-tag">{{ item.trip.startDate }} - {{ item.trip.endDate }}</p>
+        <h2>{{ item.trip.name || item.trip.destination }}</h2>
+
+        <p>
+          <strong>Destination:</strong>
+          {{ item.trip.destination }}
+        </p>
+
+        <p>
+          <strong>People:</strong>
+          {{ item.booking.people }}
+        </p>
+        <button (click)="showTripDetails(item.trip)">More Info</button>
+      </div>
+    </div>
+    }
+  </div>
+</main>

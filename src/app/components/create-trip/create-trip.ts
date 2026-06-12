@@ -7,7 +7,8 @@ import { Header } from '../../components/header/header';
   selector: 'app-create-trip',
   standalone: true,
   imports: [FormsModule,Header],
-  templateUrl: './create-trip.html'
+  templateUrl: './create-trip.html',
+  styleUrl: './create-trip.scss'
 })
 export class CreateTrip {
 

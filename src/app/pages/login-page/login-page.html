@@ -1,15 +1,22 @@
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-    <label>User Name:</label>
-    <input type="text" name="username"  required ngModel>
+<main class="auth-page">
+  <section class="auth-panel">
+    <div class="auth-copy">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Sign in and keep planning your next escape.</h1>
+    </div>
 
-    <label>Password:</label>
-    <input type="password" name="password" required ngModel>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <h2>Login</h2>
 
+      <label>User Name</label>
+      <input type="text" name="username" required ngModel>
 
-    <button type="submit">Login </button> 
-    <p>{{ message }}</p>
-   <a routerLink="/register">  Don't have an account? Register here</a>
+      <label>Password</label>
+      <input type="password" name="password" required ngModel>
 
-
-
-</form>
+      <button type="submit">Login</button>
+      <p class="message">{{ message }}</p>
+      <a routerLink="/register">Don't have an account? Register here</a>
+    </form>
+  </section>
+</main>

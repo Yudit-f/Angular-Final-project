@@ -1,29 +1,51 @@
 <app-header></app-header>
 
 @if (trip) {
-<div class="trip-card">
+<main class="details-page">
+  <div class="trip-card">
+    <div class="media-wrap">
+      <img [src]="trip.image" [alt]="trip.name || trip.destination" />
+    </div>
 
-  <h2>{{ trip.name }}</h2>
+    <div class="trip-info">
+      <p class="eyebrow">Trip details</p>
+      <h1>{{ trip.name || trip.destination }}</h1>
 
-  <img [src]="trip.image" [alt]="trip.name" />
+      <dl>
+        <div>
+          <dt>Destination</dt>
+          <dd>{{ trip.destination }}</dd>
+        </div>
+        <div>
+          <dt>Dates</dt>
+          <dd>{{ trip.startDate }} - {{ trip.endDate }}</dd>
+        </div>
+        <div>
+          <dt>Registered people</dt>
+          <dd>{{ registeredPeople }}</dd>
+        </div>
+        <div>
+          <dt>Price</dt>
+          <dd>${{ trip.price }}</dd>
+        </div>
+      </dl>
 
-  <p><strong>Destination:</strong> {{ trip.destination }}</p>
+      <p class="description">{{ trip.description }}</p>
 
-  <p>
-    <strong>Dates:</strong>
-    {{ trip.startDate }} - {{ trip.endDate }}
-  </p>
-<p><strong>Registered people:</strong> {{ registeredPeople }}</p>
-  <p><strong>Price:</strong> {{ trip.price }}$</p>
-
-  <p>{{ trip.description }}</p>
-  @if (!userBooking) {
-  <input #peopleInput type="number" min="1" value="1" />
-  <button (click)="register(+peopleInput.value)">Register</button>
-  }
-@if (userBooking) {
-  <p>You are registered with {{ userBooking.people }} people</p>
-  <button (click)="cancelBooking()">Cancel Registration</button>
-}
-</div>
+      @if (!userBooking) {
+      <div class="booking-box">
+        <label for="people">Travelers</label>
+        <input id="people" #peopleInput type="number" min="1" value="1" />
+        <button (click)="register(+peopleInput.value)">Register</button>
+      </div>
+      }
+      @if (userBooking) {
+      <div class="booking-box booked">
+        <p>You are registered with {{ userBooking.people }} people</p>
+        <button class="danger" (click)="cancelBooking()">Cancel Registration</button>
+      </div>
+      }
+    </div>
+  </div>
+</main>
 }

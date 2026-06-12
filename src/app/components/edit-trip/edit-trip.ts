@@ -7,7 +7,8 @@ import { Header } from '../../components/header/header';
   selector: 'app-edit-trip',
   standalone: true,
   imports: [FormsModule, Header],
-  templateUrl: './edit-trip.html'
+  templateUrl: './edit-trip.html',
+  styleUrl: './edit-trip.scss'
 })
 export class EditTrip implements OnInit {
 

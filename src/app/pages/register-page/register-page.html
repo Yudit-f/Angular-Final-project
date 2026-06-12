@@ -1,17 +1,26 @@
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-  <h2>Register</h2>
+<main class="auth-page">
+  <section class="auth-panel">
+    <div class="auth-copy">
+      <p class="eyebrow">Join TripNest</p>
+      <h1>Create an account for faster travel booking.</h1>
+    </div>
 
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" required ngModel />
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <h2>Register</h2>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" required ngModel />
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" required ngModel />
 
-  <label for="password-verify">Password Verify</label>
-  <input id="password-verify" type="password" name="password-verify" required ngModel />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" required ngModel />
 
-  <button type="submit">Sign Up</button>
+      <label for="password-verify">Password Verify</label>
+      <input id="password-verify" type="password" name="password-verify" required ngModel />
 
-  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
-</form>
+      <button type="submit">Sign Up</button>
+
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+      <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    </form>
+  </section>
+</main>
